@@ -31,7 +31,8 @@ export const themoviedbMoviesApiFilm = async homeId => {
   };
 
   const response = await axios.get(
-    (`https://api.themoviedb.org/3/movie/{homeId}?language=en-US`, options)
+    `https://api.themoviedb.org/3/movie/{homeId}?language=en-US`,
+    options
   );
 
   return response.data;

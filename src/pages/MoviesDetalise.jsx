@@ -7,6 +7,7 @@ const MoviesDetalise = () => {
   const { movieId } = useParams();
   console.log(movieId);
   const [filmData, setFilmData] = useState(null);
+  console.log(filmData);
 
   // const [popularFilm, setpopularFilm] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
