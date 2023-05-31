@@ -29,7 +29,6 @@ const Movies = () => {
         });
 
         setpopularFilm([...newResults]);
-        // setpopularFilm(data);
       } catch (error) {
         setError(error.message);
       } finally {
