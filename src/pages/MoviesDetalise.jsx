@@ -6,10 +6,11 @@ import { themoviedbMoviesApiFilm } from 'service/themoviedb';
 const MoviesDetalise = () => {
   const { movieId } = useParams();
   console.log(movieId);
+  const [filmData, setFilmData] = useState(null);
 
   // const [popularFilm, setpopularFilm] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState();
 
   useEffect(() => {
     async function getPopularFilm() {
@@ -20,14 +21,8 @@ const MoviesDetalise = () => {
         console.log(data);
 
         //Если нет пришедших данных-выходим
-        // if (!results) return;
-
-        //   переберем массив и сoздадим новый с необходимыми свойствами
-        // const newResults = results.map(({ title, id, poster_path }) => {
-        //   return { title, id, poster_path };
-        // });
-
-        // setpopularFilm([...newResults]);
+        if (!data) return;
+        setFilmData(data);
       } catch (error) {
         setError('Что-то пошло не так');
       } finally {
