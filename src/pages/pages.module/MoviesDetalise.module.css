@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none;
+}
+
+.title_data {
+  margin-bottom: 30px;
+}
+.link_data {
+  display: flex;
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-size: 25px;
+}

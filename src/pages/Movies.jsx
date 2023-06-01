@@ -11,14 +11,11 @@ const Movies = () => {
   const [popularFilm, setpopularFilm] = useState([]);
   const [isloading, setIsloading] = useState(false);
   const [error, setError] = useState('');
-  // Достаем значение из URL строки
-  const query = searchParams.get('query');
-  // console.log(query);
-  console.log(popularFilm);
+  // Достаем значение из URL строки и используем для запроса
+  const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
     if (!query) {
-      alert('Films not find');
       return;
     }
 

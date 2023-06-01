@@ -3,13 +3,12 @@ import css from './Form.module.css';
 
 export const SearchForm = () => {
   const [, setSearchParams] = useSearchParams();
-  console.log(setSearchParams);
 
   const handleSubmit = e => {
     e.preventDefault();
 
+    // Находим значение из инпута
     const query = e.target.name.value.toLowerCase().trim();
-    // console.log(query);
 
     if (!query) {
       return;
@@ -20,11 +19,7 @@ export const SearchForm = () => {
 
   return (
     <div>
-      <form className={css.searchForm} onSubmit={handleSubmit}>
-        <button type="submit" className={css.button}>
-          <span className={css.label}>Search</span>
-        </button>
-
+      <form className={css.search_form} onSubmit={handleSubmit}>
         <input
           className={css.input}
           type="text"
@@ -33,6 +28,9 @@ export const SearchForm = () => {
           placeholder="Search images and photos"
           name="name"
         />
+        <button type="submit" className={css.button}>
+          <span className={css.label}>Search</span>
+        </button>
       </form>
     </div>
   );

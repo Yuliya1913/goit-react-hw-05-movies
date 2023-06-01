@@ -1,0 +1,17 @@
+.wrap {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.wrapdata {
+  margin-left: 30px;
+  margin-right: 60px;
+}
+
+.title_film {
+  margin-bottom: 30px;
+}
+
+.text_film {
+  margin-bottom: 15px;
+}

@@ -56,8 +56,8 @@ export const themoviedbGetFilm = async query => {
     `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
     options
   );
-  const { results } = response.data;
-  console.log(results);
+  // const { results } = response.data;
+
   return response.data;
 };
 
@@ -77,11 +77,13 @@ export const themoviedbApiActorFilm = async movieId => {
     options
   );
   const { cast } = response.data;
-  const data = cast.map(({ name, profile_path, character }) => {
+
+  const data = cast.map(({ name, profile_path, character, id }) => {
     return {
       name,
       profile_path,
       character,
+      id,
     };
   });
   return data;
@@ -104,12 +106,13 @@ export const themoviedbApiInfoFilm = async movieId => {
     options
   );
   const { results } = response.data;
-  const dataInfo = results.map(({ author, content }) => {
+  const dataInfo = results.map(({ author, content, id }) => {
     return {
       author,
       content,
+      id,
     };
   });
-  console.log(response.data);
+
   return dataInfo;
 };

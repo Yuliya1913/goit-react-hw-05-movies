@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { themoviedbApiInfoFilm } from 'service/themoviedb';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
-  console.log(movieId);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [infoData, setInfoData] = useState(null);
-  console.log(infoData);
+
   useEffect(() => {
     async function getReviews() {
       try {
@@ -32,9 +32,9 @@ export const Reviews = () => {
   return (
     <>
       {infoData &&
-        infoData.map(({ author, content }) => {
+        infoData.map(({ author, content, id }) => {
           return (
-            <div>
+            <div key={id}>
               <h3>{author}</h3>
               <p>{content}</p>
             </div>
@@ -47,3 +47,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;

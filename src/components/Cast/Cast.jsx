@@ -2,15 +2,15 @@ import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { themoviedbApiActorFilm } from 'service/themoviedb';
+import css from './Cast.module.css';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
-  console.log(movieId);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [actorData, setActorData] = useState(null);
 
-  console.log(actorData);
   useEffect(() => {
     async function getCast() {
       try {
@@ -34,17 +34,20 @@ export const Cast = () => {
   return (
     <>
       {actorData &&
-        actorData.map(({ name, profile_path, character }) => {
+        actorData.map(({ name, profile_path, character, id }) => {
           return (
-            <div>
-              <img
-                src={`https:/image.tmdb.org/t/p/w200/${profile_path}`}
-                alt=""
-              />
-              <h3>{name}</h3>
-              <p>Character:</p>
-              <p>{character}</p>
-            </div>
+            <ul>
+              <li key={id}>
+                <img
+                  src={`https:/image.tmdb.org/t/p/w200/${profile_path}`}
+                  alt="foto actor"
+                  className={css.img}
+                />
+                <h3 className={css.title_img}>{name}</h3>
+                <p className={css.text_data}>Character:</p>
+                <p className={css.text_data}>{character}</p>
+              </li>
+            </ul>
           );
         })}
       {isLoading && <Loader />}
@@ -53,3 +56,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

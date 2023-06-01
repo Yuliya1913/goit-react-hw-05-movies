@@ -1,7 +1,7 @@
 import { Films } from 'components/Films/Films';
 import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
-
+import css from './pages.module/Home.module.css';
 import { themoviedbApi } from 'service/themoviedb';
 
 const Home = () => {
@@ -35,8 +35,8 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <div>Trending today</div>
+    <div className={css.wrapper}>
+      <div className={css.title}>Trending today</div>
 
       {/* Если есть данные в массиве, то рендерим их */}
       {popularFilm.length > 0 && <Films popularFilms={popularFilm} />}
@@ -44,7 +44,7 @@ const Home = () => {
       {isLoading && <Loader />}
 
       {error && <p>{error}</p>}
-    </>
+    </div>
   );
 };
 
