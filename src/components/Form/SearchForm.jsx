@@ -3,17 +3,19 @@ import css from './Form.module.css';
 
 export const SearchForm = () => {
   const [, setSearchParams] = useSearchParams();
+  console.log(setSearchParams);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     const query = e.target.name.value.toLowerCase().trim();
+    // console.log(query);
 
     if (!query) {
       return;
     }
     // Записываем значение из инпута в URL строку
-    setSearchParams({ query });
+    setSearchParams({ query: query });
   };
 
   return (

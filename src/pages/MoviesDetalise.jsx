@@ -32,6 +32,7 @@ const MoviesDetalise = () => {
 
   return (
     <>
+      <button>go to back</button>
       {filmData && <CartFilm film={filmData} />}
 
       <h2>Additional information</h2>

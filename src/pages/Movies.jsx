@@ -12,25 +12,27 @@ const Movies = () => {
   const [isloading, setIsloading] = useState(false);
   const [error, setError] = useState('');
   // Достаем значение из URL строки
-  const query = searchParams.get('query') ?? '';
-  console.log(query);
+  const query = searchParams.get('query');
+  // console.log(query);
+  console.log(popularFilm);
 
   useEffect(() => {
     if (!query) {
+      alert('Films not find');
       return;
     }
 
     (async () => {
       try {
         setIsloading(true);
-        const data = await themoviedbGetFilm(query);
-        console.log(data);
-        //   переберем массив и сoздадим новый с необходимыми свойствами
-        // const newResults = data.map(({ title, id, poster_path }) => {
-        //   return { title, id, poster_path };
-        // });
+        const { results } = await themoviedbGetFilm(query);
 
-        setpopularFilm(data);
+        // переберем массив и сoздадим новый с необходимыми свойствами
+        const newResults = results.map(({ title, id, poster_path }) => {
+          return { title, id, poster_path };
+        });
+
+        setpopularFilm(newResults);
       } catch (error) {
         setError(error.message);
       } finally {
