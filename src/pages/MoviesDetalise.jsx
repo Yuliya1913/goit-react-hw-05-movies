@@ -8,11 +8,13 @@ import css from './pages.module/MoviesDetalise.module.css';
 
 const MoviesDetalise = () => {
   const { movieId } = useParams();
+
   const location = useLocation();
-  // console.log(location);
+  console.log(location);
   const [filmData, setFilmData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+
   const BackLink = useRef(location.state?.from ?? '/');
 
   useEffect(() => {

@@ -11,9 +11,11 @@ export const SearchForm = () => {
     const query = e.target.name.value.toLowerCase().trim();
 
     if (!query) {
+      alert('введите данные для поиска');
       return;
     }
     // Записываем значение из инпута в URL строку
+
     setSearchParams({ query: query });
   };
 

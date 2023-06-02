@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export const Films = ({ popularFilms }) => {
   const location = useLocation();
-  // console.log(location);
+  console.log(location);
 
   return (
     <ul className={css.film_title}>
