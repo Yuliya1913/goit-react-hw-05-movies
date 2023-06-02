@@ -39,7 +39,7 @@ const Cast = () => {
             <ul>
               <li key={id}>
                 <img
-                  src={`https:/image.tmdb.org/t/p/w500/${profile_path}`}
+                  src={`https:/image.tmdb.org/t/p/w200/${profile_path}`}
                   alt="foto actor"
                   className={css.img}
                 />
