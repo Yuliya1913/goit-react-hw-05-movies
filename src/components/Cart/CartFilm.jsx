@@ -6,7 +6,7 @@ export const CartFilm = ({ film }) => {
   return (
     <div className={css.wrap}>
       <div>
-        <img src={`https:/image.tmdb.org/t/p/w400/${poster_path}`} alt="" />
+        <img src={`https:/image.tmdb.org/t/p/w500/${poster_path}`} alt="" />
       </div>
       <div className={css.wrapdata}>
         <h2 className={css.title_film}>{title}</h2>
